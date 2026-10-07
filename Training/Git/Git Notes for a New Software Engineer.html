@@ -1,0 +1,370 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>Git Notes for a New Software Engineer</h1>
+<p>Read top to bottom once, then use the cheat sheet at the end. Every command here is something you will use at work.</p>
+<hr>
+<h2>1. The mental model</h2>
+<p>Git is a <strong>distributed version control system</strong>. It stores your project as a series of <strong>snapshots (commits)</strong>, not as file diffs. Every developer has a full copy of the history locally, and a <strong>remote</strong> (GitHub, GitLab, Bitbucket) is just another copy everyone agrees to sync with.</p>
+<p><strong>Git vs GitHub:</strong> Git is the tool on your machine. GitHub is a website that hosts Git repos and adds pull requests, issues, and CI.</p>
+<h3>The three areas</h3>
+<pre><code>Working directory  --git add--&gt;  Staging area (index)  --git commit--&gt;  Repository (.git)
+   (your files)                  (what the next commit                  (permanent history)
+                                  will contain)
+</code></pre>
+<ul>
+<li><strong>Working directory:</strong> the files you edit.</li>
+<li><strong>Staging area:</strong> a draft of your next commit. This lets you commit only part of your changes.</li>
+<li><strong>Repository:</strong> the committed history, stored in the hidden <code>.git</code> folder.</li>
+</ul>
+<h3>File states</h3>
+<p>Untracked (new, Git ignores it) -&gt; Tracked &amp; unmodified -&gt; Modified -&gt; Staged -&gt; Committed.</p>
+<h3>Key vocabulary</h3>
+<ul>
+<li><strong>Commit:</strong> a snapshot with an ID (SHA hash), author, message, and pointer to its parent.</li>
+<li><strong>Branch:</strong> a lightweight movable pointer to a commit. Creating branches is nearly free.</li>
+<li><strong>HEAD:</strong> pointer to where you are now (usually the tip of your current branch).</li>
+<li><strong>origin:</strong> the default name for the remote you cloned from.</li>
+<li><strong>upstream branch:</strong> the remote branch your local branch tracks (e.g. <code>origin/main</code>).</li>
+</ul>
+<hr>
+<h2>2. One-time setup</h2>
+<pre><code class="language-bash">git config --global user.name &#34;Your Name&#34;
+git config --global user.email &#34;you@company.com&#34;   # use the email tied to your GitHub account
+git config --global init.defaultBranch main
+git config --global core.editor &#34;code --wait&#34;       # VS Code as editor (optional)
+git config --global pull.rebase false               # or true; ask your team&#39;s convention
+git config --list                                   # verify
+</code></pre>
+<p><strong>Authentication:</strong> use SSH keys or a personal access token / credential manager. Passwords no longer work for GitHub over HTTPS.</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &#34;you@company.com&#34;   # then add ~/.ssh/id_ed25519.pub to GitHub
+ssh -T git@github.com                         # test the connection
+</code></pre>
+<hr>
+<h2>3. Starting a repo</h2>
+<pre><code class="language-bash">git init                      # turn current folder into a repo
+git clone &lt;url&gt;               # copy a remote repo (creates folder, sets origin)
+git clone &lt;url&gt; my-folder     # clone into a specific folder name
+</code></pre>
+<hr>
+<h2>4. The everyday cycle</h2>
+<pre><code class="language-bash">git status                    # what changed? what is staged? (run this constantly)
+git add file.js               # stage one file
+git add src/                  # stage a folder
+git add .                     # stage everything in the current directory
+git add -p                    # stage interactively, hunk by hunk (great habit)
+git commit -m &#34;Add login form validation&#34;
+git commit                    # opens editor for a longer message
+git commit -am &#34;msg&#34;          # stage + commit all TRACKED files (skips new files)
+</code></pre>
+<h3>Looking at changes</h3>
+<pre><code class="language-bash">git diff                      # unstaged changes
+git diff --staged             # staged changes (what the next commit contains)
+git diff main..feature        # difference between two branches
+git show &lt;commit&gt;             # details and diff of one commit
+</code></pre>
+<h3>Looking at history</h3>
+<pre><code class="language-bash">git log                       # full history
+git log --oneline             # one line per commit
+git log --oneline --graph --all --decorate    # visual branch graph
+git log -p file.js            # history of one file with diffs
+git log --author=&#34;Name&#34;
+git log --since=&#34;2 weeks ago&#34;
+git blame file.js             # who last changed each line (use it to find context, not to blame people)
+</code></pre>
+<h3>Good commit messages</h3>
+<ul>
+<li>Imperative mood, under ~50 chars for the subject: <code>Fix null check in user service</code>, not <code>fixed stuff</code>.</li>
+<li>Blank line, then an optional body explaining <strong>why</strong> (the diff already shows what).</li>
+<li>One logical change per commit. If you need &quot;and&quot; in the message, consider two commits.</li>
+<li>Many teams use conventional prefixes: <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>refactor:</code>, <code>test:</code>, <code>chore:</code>.</li>
+</ul>
+<hr>
+<h2>5. Branching and merging</h2>
+<pre><code class="language-bash">git branch                    # list local branches (* = current)
+git branch -a                 # include remote branches
+git switch -c feature/login   # create AND switch (older syntax: git checkout -b)
+git switch main               # switch to existing branch
+git branch -d feature/login   # delete merged branch
+git branch -D feature/login   # force delete (unmerged work will be lost)
+git branch -m new-name        # rename current branch
+</code></pre>
+<h3>Merging</h3>
+<pre><code class="language-bash">git switch main
+git merge feature/login
+</code></pre>
+<ul>
+<li><strong>Fast-forward merge:</strong> main has no new commits, so Git just moves the pointer. No merge commit.</li>
+<li><strong>Three-way merge:</strong> both branches have new commits, so Git creates a <strong>merge commit</strong> with two parents.</li>
+<li><code>git merge --no-ff feature</code> forces a merge commit even when fast-forward is possible (keeps feature history visible).</li>
+<li><code>git merge --abort</code> cancels a merge in progress.</li>
+</ul>
+<hr>
+<h2>6. Working with remotes</h2>
+<pre><code class="language-bash">git remote -v                         # list remotes
+git remote add origin &lt;url&gt;           # add a remote
+git fetch                             # download new commits, do NOT change your files
+git pull                              # fetch + merge (or rebase) into current branch
+git push                              # upload commits on current branch
+git push -u origin feature/login      # first push of a new branch; sets upstream
+git push origin --delete feature/old  # delete a remote branch
+</code></pre>
+<p><strong>fetch vs pull:</strong> <code>fetch</code> is safe, since it only updates your view of the remote (<code>origin/main</code>). <code>pull</code> = <code>fetch</code> + integrate into your current branch. When unsure, fetch first and inspect.</p>
+<p><strong>Never <code>git push --force</code> to a shared branch.</strong> If you must force after rewriting your own branch, use <code>git push --force-with-lease</code>, which refuses if someone else pushed in the meantime.</p>
+<hr>
+<h2>7. Resolving merge conflicts</h2>
+<p>A conflict happens when two branches change the same lines (or one deletes a file the other edited). Git pauses and marks the file:</p>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+your version (current branch)
+=======
+their version (incoming branch)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/login
+</code></pre>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><code>git status</code> shows &quot;both modified&quot; files.</li>
+<li>Open each file, decide the final content, delete the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers.</li>
+<li><code>git add &lt;file&gt;</code> to mark it resolved.</li>
+<li><code>git commit</code> (or <code>git merge --continue</code> / <code>git rebase --continue</code>).</li>
+</ol>
+<p>Tips:</p>
+<ul>
+<li>VS Code shows &quot;Accept Current / Incoming / Both&quot; buttons.</li>
+<li>Run the tests/app after resolving. A conflict-free file can still be logically broken.</li>
+<li>To reduce conflicts: pull <code>main</code> often, keep branches short-lived, avoid mass reformatting.</li>
+<li><code>git mergetool</code> launches a configured visual tool.</li>
+</ul>
+<hr>
+<h2>8. Undoing things (the most important section)</h2>
+<p>Think about <strong>where</strong> the mistake is.</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discard edits to a file (not staged)</td>
+<td><code>git restore file.js</code></td>
+</tr>
+<tr>
+<td>Unstage a file (keep edits)</td>
+<td><code>git restore --staged file.js</code></td>
+</tr>
+<tr>
+<td>Fix the last commit message / add a forgotten file (not yet pushed)</td>
+<td><code>git add file; git commit --amend</code></td>
+</tr>
+<tr>
+<td>Undo a commit but keep changes staged</td>
+<td><code>git reset --soft HEAD~1</code></td>
+</tr>
+<tr>
+<td>Undo a commit, keep changes unstaged</td>
+<td><code>git reset HEAD~1</code> (mixed, default)</td>
+</tr>
+<tr>
+<td>Undo a commit and DELETE the changes</td>
+<td><code>git reset --hard HEAD~1</code> (dangerous)</td>
+</tr>
+<tr>
+<td>Undo a commit that is already pushed</td>
+<td><code>git revert &lt;commit&gt;</code> (creates a new opposite commit, safe for shared history)</td>
+</tr>
+<tr>
+<td>Delete untracked files</td>
+<td><code>git clean -n</code> (dry run) then <code>git clean -fd</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Golden rule:</strong> <code>reset</code> rewrites history (only for local, unpushed commits). <code>revert</code> adds history (safe for pushed commits).</p>
+<h3>The safety net: reflog</h3>
+<p><code>git reflog</code> lists everywhere HEAD has been, including commits you &quot;lost&quot; via reset or a deleted branch. Find the hash and run <code>git reset --hard &lt;hash&gt;</code> or <code>git switch -c rescue &lt;hash&gt;</code>. Committed work is almost never truly gone (for roughly 30-90 days by default). Uncommitted changes, however, <strong>cannot</strong> be recovered, so commit early.</p>
+<hr>
+<h2>9. Stash: park work temporarily</h2>
+<p>Use when you need to switch branches but are not ready to commit.</p>
+<pre><code class="language-bash">git stash                     # save tracked changes, clean working dir
+git stash -u                  # include untracked files
+git stash list
+git stash pop                 # reapply latest stash and remove it
+git stash apply               # reapply but keep it in the list
+git stash drop stash@{0}
+git stash push -m &#34;wip login&#34; # named stash
+</code></pre>
+<hr>
+<h2>10. Rebase, cherry-pick, and history cleanup</h2>
+<h3>Rebase</h3>
+<p>Replays your branch's commits on top of another branch, producing a <strong>linear history</strong>.</p>
+<pre><code class="language-bash">git switch feature/login
+git rebase main               # move my commits on top of latest main
+# conflicts? fix, git add, git rebase --continue   (or --abort)
+</code></pre>
+<p><strong>Merge vs rebase:</strong></p>
+<ul>
+<li>Merge preserves exact history and is non-destructive, but is noisier.</li>
+<li>Rebase gives a clean line, but <strong>rewrites commit hashes</strong>.</li>
+<li><strong>Never rebase commits that others have already pulled</strong> (public branches like main).</li>
+</ul>
+<h3>Interactive rebase (clean up before a PR)</h3>
+<pre><code class="language-bash">git rebase -i HEAD~4          # squash, reword, reorder, drop the last 4 commits
+</code></pre>
+<p>Mark commits <code>pick</code>, <code>squash</code>/<code>fixup</code> (combine), <code>reword</code>, <code>drop</code>.</p>
+<h3>Cherry-pick</h3>
+<p>Copy one specific commit onto the current branch (e.g. a hotfix).</p>
+<pre><code class="language-bash">git cherry-pick &lt;commit&gt;
+</code></pre>
+<hr>
+<h2>11. .gitignore</h2>
+<p>A file listing patterns Git should not track.</p>
+<pre><code>node_modules/
+.env
+*.log
+dist/
+build/
+.vscode/
+.DS_Store
+__pycache__/
+</code></pre>
+<ul>
+<li><strong>Never commit secrets</strong> (API keys, <code>.env</code>, passwords). If you do, deleting the file later does NOT remove it from history. Rotate the secret immediately and tell your team.</li>
+<li>A file already tracked is not ignored retroactively: <code>git rm --cached file</code> then commit.</li>
+<li>Commit a <code>.env.example</code> with fake values instead of the real <code>.env</code>.</li>
+</ul>
+<hr>
+<h2>12. Team workflows</h2>
+<h3>Feature branch + pull request (what you will most likely use)</h3>
+<ol>
+<li><code>git switch main &amp;&amp; git pull</code></li>
+<li><code>git switch -c feature/short-description</code></li>
+<li>Work in small commits.</li>
+<li><code>git push -u origin feature/short-description</code></li>
+<li>Open a <strong>Pull Request (PR)</strong> on GitHub. Describe what and why, link the ticket, add screenshots for UI.</li>
+<li>Reviewers comment. You push more commits to the same branch and the PR updates.</li>
+<li>After approval, it is merged (merge commit, squash, or rebase, per team policy).</li>
+<li>Delete the branch, <code>git switch main &amp;&amp; git pull</code>.</li>
+</ol>
+<h3>Branch naming</h3>
+<p><code>feature/login-page</code>, <code>fix/cart-total-bug</code>, <code>chore/update-deps</code>, or with a ticket ID: <code>feature/PROJ-123-login</code>.</p>
+<h3>Branching strategies (know the names)</h3>
+<ul>
+<li><strong>GitHub Flow:</strong> <code>main</code> is always deployable, short-lived feature branches, PRs. Simple and common.</li>
+<li><strong>GitFlow:</strong> long-lived <code>main</code> + <code>develop</code>, plus <code>feature/*</code>, <code>release/*</code>, <code>hotfix/*</code> branches. Heavier, suited to scheduled releases.</li>
+<li><strong>Trunk-based development:</strong> very short branches (or direct commits) to main with feature flags. Common with strong CI.</li>
+</ul>
+<h3>Code review etiquette</h3>
+<ul>
+<li>Keep PRs small (a few hundred lines at most).</li>
+<li>Review your own diff before requesting review.</li>
+<li>Respond to every comment, and don't take feedback personally.</li>
+<li>Ensure tests/CI pass before asking for review.</li>
+</ul>
+<h3>Forks</h3>
+<p>Open-source flow: <strong>fork</strong> the repo, clone your fork, add the original as <code>upstream</code> (<code>git remote add upstream &lt;url&gt;</code>), sync with <code>git fetch upstream</code>, and open a PR from your fork.</p>
+<hr>
+<h2>13. Other useful tools</h2>
+<pre><code class="language-bash">git tag v1.0.0                      # lightweight tag
+git tag -a v1.0.0 -m &#34;Release 1.0&#34;  # annotated tag
+git push origin v1.0.0              # push a tag (or --tags for all)
+
+git bisect start                    # binary-search for the commit that introduced a bug
+git bisect bad                      # current commit is broken
+git bisect good &lt;old-good-commit&gt;   # then test, mark good/bad until found
+git bisect reset
+
+git restore --source=&lt;commit&gt; file  # restore a file from an older commit
+git rm file.js                      # delete a file and stage the deletion
+git mv old.js new.js                # rename and stage
+git commit --amend --no-edit        # add staged changes to last commit, keep message
+</code></pre>
+<p><strong>Aliases</strong> save typing:</p>
+<pre><code class="language-bash">git config --global alias.st status
+git config --global alias.lg &#34;log --oneline --graph --all --decorate&#34;
+</code></pre>
+<hr>
+<h2>14. Common mistakes and fixes</h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Committed on <code>main</code> by accident (not pushed)</td>
+<td><code>git branch feature/x</code> (save the commit), then <code>git reset --hard origin/main</code>, then <code>git switch feature/x</code></td>
+</tr>
+<tr>
+<td>Wrong commit message (not pushed)</td>
+<td><code>git commit --amend -m &quot;new message&quot;</code></td>
+</tr>
+<tr>
+<td>Committed a secret</td>
+<td>Rotate the secret first. Then clean history (<code>git filter-repo</code> or BFG) with your team's guidance.</td>
+</tr>
+<tr>
+<td>&quot;Your branch is behind origin&quot;</td>
+<td><code>git pull</code></td>
+</tr>
+<tr>
+<td>Push rejected (non-fast-forward)</td>
+<td>Someone pushed first. <code>git pull</code> (or <code>git pull --rebase</code>), resolve conflicts, push again.</td>
+</tr>
+<tr>
+<td>Detached HEAD</td>
+<td>You checked out a commit, not a branch. <code>git switch -c new-branch</code> to keep your work.</td>
+</tr>
+<tr>
+<td>Merge went wrong</td>
+<td><code>git merge --abort</code>, or <code>git reset --hard ORIG_HEAD</code> right after</td>
+</tr>
+<tr>
+<td>Deleted a branch by mistake</td>
+<td><code>git reflog</code>, find its tip, <code>git switch -c branch-name &lt;hash&gt;</code></td>
+</tr>
+<tr>
+<td>Huge accidental file committed</td>
+<td>Remove it, add to <code>.gitignore</code>, and check repo size. Large files belong in Git LFS.</td>
+</tr>
+<tr>
+<td>Line ending noise (Windows)</td>
+<td><code>git config --global core.autocrlf true</code> (Windows) or <code>input</code> (Mac/Linux)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>15. Habits that make you look good</h2>
+<ol>
+<li>Run <code>git status</code> before every add/commit.</li>
+<li>Commit small and often. Push at least daily so work is backed up.</li>
+<li>Pull before you start work and before you push.</li>
+<li>Never commit directly to <code>main</code> if the team uses PRs.</li>
+<li>Read the diff (<code>git diff --staged</code>) before committing to catch debug logs and stray changes.</li>
+<li>Don't commit generated files, dependencies, or secrets.</li>
+<li>If you are scared of a command, <strong>make a backup branch first</strong>: <code>git branch backup</code>. It costs nothing.</li>
+<li>When stuck, don't panic-run commands. Run <code>git status</code>, <code>git log --oneline --graph --all</code>, and <code>git reflog</code> to understand the state.</li>
+</ol>
+<hr>
+<h2>16. Quick reference</h2>
+<pre><code>SETUP        git config --global user.name/user.email
+START        git init | git clone &lt;url&gt;
+INSPECT      git status | git diff | git log --oneline --graph --all | git show
+SAVE         git add . | git commit -m &#34;msg&#34;
+BRANCH       git switch -c name | git switch name | git branch -d name
+MERGE        git merge name | git rebase main
+REMOTE       git fetch | git pull | git push -u origin name
+UNDO         git restore | git restore --staged | git revert | git reset | git reflog
+PARK         git stash | git stash pop
+</code></pre>
+<h2>17. Practice plan (when you have a laptop)</h2>
+<ol>
+<li>Create a repo, make 5 commits, view with <code>git log --oneline --graph</code>.</li>
+<li>Make two branches editing the same line, merge, and resolve the conflict on purpose.</li>
+<li>Commit something wrong, then fix it with <code>amend</code>, <code>reset</code>, and <code>revert</code> (one each).</li>
+<li>Use <code>git reflog</code> to recover a deleted branch.</li>
+<li>Push to GitHub, open a PR on your own repo, and merge it.</li>
+<li>Interactive practice: <strong>learngitbranching.js.org</strong>. Reference book: <strong>Pro Git</strong> (free at git-scm.com/book).</li>
+</ol>
+
+</body></html>
