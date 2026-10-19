@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="favicon.svg">
+    <!-- Needed once in <head> (your render fell back to Arial, so this font was not loading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>The Spitfire Difference | Spitfire Homes</title>
+</head>
+
+<body>
+    <div class="h-50">
+        <header class="sticky top-0 z-50 h-25 w-full bg-white">
+            <div class="full-container grid grid-cols-3 items-center h-full">
+
+                <div class="Mobile-Left hidden max-[1024px]:flex h-full">
+                    <a href="" aria-label="Search"
+                        class="w-26 h-full flex justify-center items-center border-r border-neutral-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-neutral-800 hover:border-[#bba886]"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round">
+                            <circle cx="10.5" cy="10.5" r="7" />
+                            <line x1="15.8" y1="15.8" x2="21" y2="21" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="Left-Header flex justify-center h-full max-[1024px]:hidden">
+                    <ul class="flex items-center h-full">
+                        <li class="mx-5 uppercase font-semibold text-sm">
+                            <a href="">Find Your Home</a>
+                        </li>
+
+                        <li class="group mx-5 h-full flex items-center uppercase font-semibold text-sm">
+
+                            <a href=""
+                                class="flex items-center h-12 border-t-2 border-transparent group-hover:border-[#bba886] group-focus-within:border-[#bba886] transition-colors">
+                                <p>Buying with Spitfire</p>
+                                <img src="assets/drop-down.svg"
+                                    class="w-5 pl-1.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                                    alt="">
+                            </a>
+
+                            <div
+                                class="hidden group-hover:block group-focus-within:block absolute top-full left-0 w-full bg-[#f4f4f4] normal-case font-normal text-neutral-800 cursor-default">
+                                <div
+                                    class="grid grid-cols-[minmax(200px,17%)_1fr_1fr_1fr] gap-x-8 xl:gap-x-15 px-12 xl:px-24 pt-15 pb-16">
+
+                                    <!-- Text links -->
+                                    <ul class="flex flex-col uppercase font-bold tracking-wide">
+                                        <li><a href="" class="block py-4.5 hover:text-[#8d7b52] transition-colors">The
+                                                Spitfire Difference</a></li>
+                                        <li><a href=""
+                                                class="block py-4.5 hover:text-[#8d7b52] transition-colors">Spitfire
+                                                Concierge</a></li>
+                                        <li><a href="" class="block py-4.5 hover:text-[#8d7b52] transition-colors">Part
+                                                Exchange</a></li>
+                                        <li><a href=""
+                                                class="block py-4.5 hover:text-[#8d7b52] transition-colors">Customer
+                                                Charter</a></li>
+                                        <li><a href=""
+                                                class="block py-4.5 hover:text-[#8d7b52] transition-colors">Customer
+                                                Care</a></li>
+                                    </ul>
+
+                                    <a href="" class="block">
+                                        <img src="assets/menu-1.png" alt="" class="w-full aspect-3/2 object-cover">
+                                        <h3
+                                            class="mt-8 flex items-center gap-3 uppercase font-light text-lg xl:text-[28px] tracking-wide">
+                                            The Spitfire Difference
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-4 shrink-0"
+                                                viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polyline points="2,2 8,8 2,14" />
+                                            </svg>
+                                        </h3>
+                                        <p class="mt-5 text-lg font-light leading-9 text-neutral-700">
+                                            At Spitfire, we carefully consider each home as if it were our own.
+                                        </p>
+                                    </a>
+
+                                    <a href="" class="block">
+                                        <img src="assets/menu-2.png" alt="" class="w-full aspect-3/2 object-cover">
+                                        <h3
+                                            class="mt-8 flex items-center gap-3 uppercase font-light text-lg xl:text-[28px] tracking-wide">
+                                            Buying Schemes
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-4 shrink-0"
+                                                viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polyline points="2,2 8,8 2,14" />
+                                            </svg>
+                                        </h3>
+                                        <p class="mt-5 text-lg font-light leading-9 text-neutral-700">
+                                            Explore tailored buying schemes like Part Exchange and Concierge, and what
+                                            to expect when purchasing a new Spitfire home.
+                                        </p>
+                                    </a>
+
+                                    <a href="" class="block">
+                                        <img src="assets/menu-3.png" alt="" class="w-full aspect-3/2 object-cover">
+                                        <h3
+                                            class="mt-8 flex items-center gap-3 uppercase font-light text-lg xl:text-[28px] tracking-wide">
+                                            Customer Charter
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 h-4 shrink-0"
+                                                viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polyline points="2,2 8,8 2,14" />
+                                            </svg>
+                                        </h3>
+                                        <p class="mt-5 text-lg font-light leading-9 text-neutral-700">
+                                            Our pledge to you - to provide a professional, efficient and helpful
+                                            experience.
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="Main-Logo flex justify-center col-start-2">
+                    <a href="">
+                        <img src="assets/logo.svg" class="w-40" alt="">
+                    </a>
+                </div>
+
+                <div class="Right-Header flex justify-end h-full col-start-3">
+                    <ul class="flex h-full">
+                        <li
+                            class="w-24 flex justify-center hover:cursor-pointer h-full border-l border-neutral-100 max-[1024px]:hidden">
+                            <a href="" class="flex justify-center items-center">
+                                <img src="assets/heart.svg" class="w-5" alt="">
+                            </a>
+                        </li>
+                        <li
+                            class="w-24 flex justify-center hover:cursor-pointer h-full border-l border-neutral-100 max-[1024px]:hidden">
+                            <a href="" class="flex justify-center items-center">
+                                <img src="assets/account.svg" class="w-5" alt="">
+                            </a>
+                        </li>
+                        <li
+                            class="w-24 max-[1024px]:w-26 flex justify-center hover:cursor-pointer h-full border-l border-neutral-100">
+                            <a href="" class="flex justify-center items-center">
+                                <div>
+                                    <img src="assets/small-line.svg" class="w-6 my-1" alt="">
+                                    <img src="assets/small-line.svg" class="w-6 my-1" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main class="m-0 p-0 font-sans antialiased">
+
+        <div
+            class="hero-banner -mt-25 w-full min-h-125 lg:h-137.5 relative overflow-hidden flex justify-center items-center bg-black font-['Barlow',sans-serif]">
+
+            <!-- Hero Banner BackGround -->
+            <div
+                class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url(assets/bg1.avif)] animate-hero-slide [animation-delay:0s]">
+            </div>
+            <div
+                class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url(assets/bg2.avif)] animate-hero-slide [animation-delay:4s]">
+            </div>
+            <div
+                class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url(assets/bg3.avif)] animate-hero-slide [animation-delay:8s]">
+            </div>
+            <div
+                class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url(assets/bg4.avif)] animate-hero-slide [animation-delay:12s]">
+            </div>
+            <div
+                class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url(assets/bg5.avif)] animate-hero-slide [animation-delay:16s]">
+            </div>
+
+            <div class="absolute inset-0 z-5 bg-black/40"></div>
+
+            <div class="absolute inset-0 z-10 w-full flex flex-col items-center justify-start">
+                <div class="flex justify-center items-start inset-0 z-20 mt-25 ">
+                    <h1
+                        class="2xl:text-7xl xl:text-6xl lg:text-4xl md:text-3xl text-2xl font-light leading-[1.2] text-white w-5/8 text-center m-2">
+                        Creating sustainable communities and lasting value.
+                    </h1>
+                </div>
+
+                <div class="w-240 h-27.5 flex justify-center items-center inset-0 z-20 bg-white mt-3
+           max-[1024px]:w-85 max-[1024px]:h-auto max-[1024px]:px-7.5 max-[1024px]:py-3.75">
+
+                    <form action=""
+                        class="w-full h-full px-8 flex justify-between items-center
+               max-[1024px]:px-0 max-[1024px]:grid max-[1024px]:grid-cols-[1fr_auto] max-[1024px]:items-center max-[1024px]:gap-y-2.25">
+
+                        <input type="text" placeholder="Search by postcode or area.." class="w-120 h-27.5 min-w-0 bg-transparent outline-none text-xl font-light text-neutral-700 placeholder:text-neutral-400 placeholder:font-light
+                   max-[1024px]:w-full max-[1024px]:h-15 max-[1024px]:text-base">
+
+                        <div class="flex items-center gap-8 max-[1024px]:contents">
+
+                            <label for=""
+                                class="uppercase flex items-center gap-2 cursor-pointer opacity-70 hover:opacity-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                                    class="max-[1024px]:size-6">
+                                    <path
+                                        d="M8.906 15a6.1 6.1 0 01-6.092-6.094A6.101 6.101 0 018.906 2.81 6.102 6.102 0 0115 8.906 6.101 6.101 0 018.906 15zm0-15c.26 0 .469.21.469.469v3.3a5.167 5.167 0 014.667 4.668h3.302a.469.469 0 110 .938H14.04a5.166 5.166 0 01-4.666 4.666v3.303a.469.469 0 11-.938 0V14.04a5.166 5.166 0 01-4.665-4.666H.47a.469.469 0 110-.938h3.303a5.166 5.166 0 014.665-4.669v-3.3c0-.258.21-.468.47-.468z"
+                                        fill="#74746D" fill-rule="evenodd"></path>
+                                </svg>
+                                <span
+                                    class="text-sm font-semibold tracking-wide text-[#5f5e57] whitespace-nowrap max-[1024px]:hidden">
+                                    Current Location
+                                </span>
+                            </label>
+
+                            <button type="submit" class="uppercase bg-[#bda782] hover:bg-[#696e6c] transition-colors text-white text-sm font-semibold tracking-wide px-10 py-4 cursor-pointer
+                       max-[1024px]:col-span-2 max-[1024px]:w-full max-[1024px]:h-15 max-[1024px]:py-0">
+                                Find a Home
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="hover:cursor-pointer flex flex-col justify-start">
+                    <!-- Scroll-down chevron -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="14" viewBox="0 0 38 20" fill="none"
+                        stroke="white" stroke-width="1.5" class="absolute z-10 bottom-5 left-1/2 -translate-x-1/2">
+                        <polyline points="1,1 19,18 37,1" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="intro-section font-['Barlow',sans-serif] text-[#2b2b2b] px-6 md:px-12 xl:px-16 pt-24 pb-24">
+
+        <!-- Intro text + button -->
+        <div>
+            <p
+                class="max-w-312.5 text-lg md:text-xl xl:text-2xl font-extralight leading-[1.2] text-left w-full md:w-3/4 ">
+                We are an <strong class="font-semibold">award-winning homebuilder</strong> with a passion for
+                creating stylish and design-led properties that our customers are proud to call home.
+            </p>
+
+            <p class="mt-8 md:text-lg xl:text-xl font-light text-neutral-600">
+                Explore a selection of properties currently available from Spitfire Homes.
+            </p>
+
+            <button
+                class="flex justify-center items-center mt-12 w-44 h-11.5 px-7 py-4 whitespace-nowrap bg-[#f1f1f1] hover:bg-[#2a312e] transition-colors text-[#2b2b2b] hover:text-white tracking-wide cursor-pointer">
+                <a href="" class="text-sm text-center uppercase font-semibold">Find Your Home</a>
+            </button>
+        </div>
+
+        <!-- Cards -->
+        <div class="mt-28 grid md:grid-cols-3 grid-cols-1 gap-10 xl:gap-15 items-start">
+
+            <div>
+                <img src="assets/intro-1.png" alt="" class="w-full aspect-3/2 object-cover">
+                <h3 class="mt-9 uppercase lg:text-xl md:text-lg text-lg font-normal leading-6 tracking-wide">About us
+                </h3>
+                <p class="mt-2 font-light leading-6 text-neutral-600">
+                    Forward-thinking, design-led and committed to quality; we are Spitfire Homes.
+                </p>
+                <p class="mt-5">
+                    <a href=""
+                        class="uppercase font-medium tracking-wide text-[#9c8656] hover:text-[#7d6a43] transition-colors">Learn
+                        More</a>
+                </p>
+            </div>
+
+            <div>
+                <img src="assets/intro-2.png" alt="" class="w-full aspect-3/2 object-cover">
+                <h3 class="mt-9 uppercase lg:text-xl md:text-lg text-lg font-normal leading-6 tracking-wide">The
+                    Spitfire
+                    Difference</h3>
+                <p class="mt-2 font-light leading-6 text-neutral-600 max-w-[27ch] xl:max-w-none">
+                    At Spitfire, we carefully consider each home as if it were our own.
+                </p>
+                <p class="mt-5">
+                    <a href=""
+                        class="uppercase font-medium tracking-wide text-[#9c8656] hover:text-[#7d6a43] transition-colors">Learn
+                        More</a>
+                </p>
+            </div>
+
+            <div>
+                <img src="assets/intro-3.png" alt="" class="w-full aspect-3/2 object-cover">
+                <h3 class="mt-9 uppercase lg:text-xl md:text-lg text-lg font-normal leading-6 tracking-wide">A
+                    Commitment to
+                    Sustainability</h3>
+                <p class="mt-2 font-light leading-6 text-neutral-600">
+                    Delivering sustainable homes that are as efficient as they are stylish.
+                </p>
+                <p class="mt-5">
+                    <a href=""
+                        class="uppercase font-medium tracking-wide text-[#9c8656] hover:text-[#7d6a43] transition-colors">Learn
+                        More</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 bg-[#A2A39A] font-[Barlow,sans-serif]">
+        <!-- Image: first on small/medium screens, right column on large -->
+        <div class="order-1 lg:order-2">
+            <img src="assets/buying.png" class="w-full h-full object-cover aspect-4/3 lg:aspect-auto"
+                alt="Spitfire Homes buying schemes">
+        </div>
+
+        <!-- Text: below image on small/medium, left column on large -->
+        <div
+            class="order-2 lg:order-1 flex flex-col justify-center items-center text-white px-6 py-12 md:py-16 lg:py-0">
+            <h2 class="text-xl md:text-2xl font-medium">Buying Schemes</h2>
+
+            <p class="text-center text-sm md:text-base font-light w-full max-w-md lg:max-w-none lg:w-2/3 mt-4 md:mt-6">
+                Spitfire Homes offers a range of buying schemes designed to make moving easier,
+                including options like Part Exchange, Concierge and Move Unlock - helping you secure
+                a new home even if your current property hasn't yet sold.
+            </p>
+
+            <a href="#"
+                class="flex justify-center items-center mt-8 md:mt-12 w-44 h-11.5 px-7 whitespace-nowrap bg-[#f1f1f1] hover:bg-[#2a312e] text-[#2b2b2b] hover:text-white text-sm font-semibold uppercase tracking-wide transition-colors cursor-pointer">
+                Find out more
+            </a>
+        </div>
+    </section>
+
+    <div class="intro-section font-['Barlow',sans-serif] text-[#2b2b2b] px-6 md:px-12 xl:px-16 pt-24 pb-24">
+
+        <!-- Intro text + button -->
+        <div>
+            <p
+                class="max-w-312.5 text-lg md:text-xl xl:text-2xl font-extralight leading-[1.2] text-left w-full md:w-3/4 ">
+                <strong class="font-semibold">Latest News</strong> & Announcements
+            </p>
+
+            <p class="mt-6 md:text-lg xl:text-xl font-light text-neutral-600">
+                The latest news, updates and announcements from Spitfire Homes.
+            </p>
+
+            <button
+                class="flex justify-center items-center mt-8 w-44 h-11.5 px-7 py-4 whitespace-nowrap bg-[#f1f1f1] hover:bg-[#2a312e] transition-colors text-[#2b2b2b] hover:text-white tracking-wide cursor-pointer">
+                <a href="" class="text-sm text-center uppercase font-semibold">View All</a>
+            </button>
+        </div>
+
+        <!-- Cards -->
+        <div class="mt-28 grid md:grid-cols-3 grid-cols-1 gap-10 xl:gap-15 items-start">
+
+            <div>
+                <div class="relative w-full aspect-3/2 bg-cover bg-center bg-no-repeat bg-[url(assets/latest-1.png)]">
+                    <div class="absolute top-0 left-0 flex gap-3.75">
+                        <span
+                            class="h-8 px-3 flex items-center uppercase text-xs whitespace-nowrap font-medium tracking-wide text-white bg-[#8e9286]">
+                            Updates & blogs
+                        </span>
+                    </div>
+                </div>
+                <p class="mt-5 text-sm opacity-70 font-light leading-6 text-neutral-600">15 OCT 2026</p>
+                <h3 class="mt-3 uppercase lg:text-xl md:text-lg text-lg font-normal leading-6 tracking-wide">Why invest
+                    in Edgbaston? Discover the Opportunity at Viridian
+                </h3>
+                <p class="mt-2 font-light leading-6 text-neutral-600">
+                    ...
+                </p>
+                <p class="mt-5">
+                    <a href=""
+                        class="uppercase font-medium tracking-wide text-[#9c8656] hover:text-[#7d6a43] transition-colors">Learn
+                        More</a>
+                </p>
+            </div>
+
+            <div>
+                <div class="relative w-full aspect-3/2 bg-cover bg-center bg-no-repeat bg-[url(assets/latest-2.png)]">
+                    <div class="absolute top-0 left-0 flex gap-3.75">
+                        <span
+                            class="h-8 px-3 flex items-center uppercase text-xs whitespace-nowrap font-medium tracking-wide text-white bg-[#8e9286]">
+                            Updates & blogs
+                        </span>
+                    </div>
+                </div>
+                <p class="mt-5 text-sm opacity-70 font-light leading-6 text-neutral-600">05 OCT 2026</p>
+                <h3 class="mt-3 uppercase lg:text-xl md:text-lg text-lg font-normal leading-6 tracking-wide">Inspired by
+                    Place: Celebrating Architecture Across Spitfire Homes</h3>
+                <p class="mt-2 font-light leading-6 text-neutral-600 max-w-[27ch] xl:max-w-none">
+                    This World Architecture Day, we're celebrating the architectural influences that shape our homes and
+                    the individuality that makes each Spitfire collection distinctive.
+                </p>
+                <p class="mt-5">
+                    <a href=""
+                        class="uppercase font-medium tracking-wide text-[#9c8656] hover:text-[#7d6a43] transition-colors">Learn
+                        More</a>
+                </p>
+            </div>
+
+            <div>
+                <div class="relative w-full aspect-3/2 bg-cover bg-center bg-no-repeat bg-[url(assets/latest-3.png)]">
+                    <div class="absolute top-0 left-0 flex gap-3.75">
+                        <span
+                            class="h-8 px-3 flex items-center uppercase text-xs whitespace-nowrap font-medium tracking-wide text-white bg-[#8e9286]">
+                            Corporate News
+                        </span>
+                        <span
+                            class="h-8 px-3 flex items-center uppercase text-xs whitespace-nowrap font-medium tracking-wide text-white bg-[#8e9286]">
+                            Press Releases
+                        </span>
+                    </div>
+                </div>
+                <p class="mt-5 text-sm opacity-70 font-light leading-6 text-neutral-600">30 SEP 2026</p>
+                <h3 class="mt-3 uppercase lg:text-xl md:text-lg text-lg font-normal leading-6 tracking-wide">Spitfire
+                    Homes Announces Plans for 127 New Homes at Historic Impney Estate in Droitwich Spa</h3>
+                <p class="mt-2 font-light leading-6 text-neutral-600">
+                    Introducing Little Impney, an exclusive new collection of 127 premium homes in Droitwich Spa,
+                    inspired by the heritage of the historic Impney Estate.
+                </p>
+                <p class="mt-5">
+                    <a href=""
+                        class="uppercase font-medium tracking-wide text-[#9c8656] hover:text-[#7d6a43] transition-colors">Learn
+                        More</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="px-6 md:px-12 xl:px-24 py-16 font-['Barlow',sans-serif] text-[#2b2b2b] bg-[#F4F4F4]">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 min-[1440px]:grid-cols-4 gap-6.5 md:gap-6.75 min-[1440px]:gap-7.5">
+
+            <!-- Card 1 -->
+            <a href=""
+                class="group flex flex-col max-[768px]:flex-row max-[768px]:items-center bg-white shadow-[0_0_30px_rgba(0,0,0,0.08)]">
+                <div class="overflow-hidden max-[768px]:w-[28%] max-[768px]:shrink-0">
+                    <img src="assets/card-1.png" alt=""
+                        class="w-full aspect-3/2 max-[768px]:aspect-[1.45] object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div
+                    class="flex-1 p-6 xl:p-10 min-[1440px]:p-5.5 max-[768px]:py-0 max-[768px]:pl-[8%] max-[768px]:pr-4">
+                    <h3
+                        class="flex items-center gap-3 uppercase text-2xl xl:text-[26px] min-[1440px]:text-base font-normal leading-8 min-[1440px]:leading-6 tracking-wide max-[768px]:text-lg max-[768px]:sm:text-3xl max-[768px]:leading-snug">
+                        Land Required
+                        <svg xmlns="http://www.w3.org/2000/svg" class="hidden max-[768px]:block w-2.5 h-4 shrink-0"
+                            viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <polyline points="2,2 8,8 2,14" />
+                        </svg>
+                    </h3>
+                    <p
+                        class="mt-3 min-[1440px]:mt-2 text-lg xl:text-[21px] min-[1440px]:text-xs font-light leading-8 min-[1440px]:leading-4.5 text-neutral-600 max-[768px]:hidden">
+                        We are actively seeking new residential development opportunities across the Midlands region.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href=""
+                class="group flex flex-col max-[768px]:flex-row max-[768px]:items-center bg-white shadow-[0_0_30px_rgba(0,0,0,0.08)]">
+                <div class="overflow-hidden max-[768px]:w-[28%] max-[768px]:shrink-0">
+                    <img src="assets/card-2.png" alt=""
+                        class="w-full aspect-3/2 max-[768px]:aspect-[1.45] object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div
+                    class="flex-1 p-6 xl:p-10 min-[1440px]:p-5.5 max-[768px]:py-0 max-[768px]:pl-[8%] max-[768px]:pr-4">
+                    <h3
+                        class="flex items-center gap-3 uppercase text-2xl xl:text-[26px] min-[1440px]:text-base font-normal leading-8 min-[1440px]:leading-6 tracking-wide max-[768px]:text-lg max-[768px]:sm:text-3xl max-[768px]:leading-snug">
+                        The Spitfire Difference
+                        <svg xmlns="http://www.w3.org/2000/svg" class="hidden max-[768px]:block w-2.5 h-4 shrink-0"
+                            viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <polyline points="2,2 8,8 2,14" />
+                        </svg>
+                    </h3>
+                    <p
+                        class="mt-3 min-[1440px]:mt-2 text-lg xl:text-[21px] min-[1440px]:text-xs font-light leading-8 min-[1440px]:leading-4.5 text-neutral-600 max-[768px]:hidden">
+                        At Spitfire, we carefully consider each home as if it were our own.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href=""
+                class="group flex flex-col max-[768px]:flex-row max-[768px]:items-center bg-white shadow-[0_0_30px_rgba(0,0,0,0.08)]">
+                <div class="overflow-hidden max-[768px]:w-[28%] max-[768px]:shrink-0">
+                    <img src="assets/card-3.png" alt=""
+                        class="w-full aspect-3/2 max-[768px]:aspect-[1.45] object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div
+                    class="flex-1 p-6 xl:p-10 min-[1440px]:p-5.5 max-[768px]:py-0 max-[768px]:pl-[8%] max-[768px]:pr-4">
+                    <h3
+                        class="flex items-center gap-3 uppercase text-2xl xl:text-[26px] min-[1440px]:text-base font-normal leading-8 min-[1440px]:leading-6 tracking-wide max-[768px]:text-lg max-[768px]:sm:text-3xl max-[768px]:leading-snug">
+                        Customer Care
+                        <svg xmlns="http://www.w3.org/2000/svg" class="hidden max-[768px]:block w-2.5 h-4 shrink-0"
+                            viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <polyline points="2,2 8,8 2,14" />
+                        </svg>
+                    </h3>
+                    <p
+                        class="mt-3 min-[1440px]:mt-2 text-lg xl:text-[21px] min-[1440px]:text-xs font-light leading-8 min-[1440px]:leading-4.5 text-neutral-600 max-[768px]:hidden">
+                        Report an issue, find out about your warranty and provide feedback on our service.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href=""
+                class="group flex flex-col max-[768px]:flex-row max-[768px]:items-center bg-white shadow-[0_0_30px_rgba(0,0,0,0.08)]">
+                <div class="overflow-hidden max-[768px]:w-[28%] max-[768px]:shrink-0">
+                    <img src="assets/card-4.png" alt=""
+                        class="w-full aspect-3/2 max-[768px]:aspect-[1.45] object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div
+                    class="flex-1 p-6 xl:p-10 min-[1440px]:p-5.5 max-[768px]:py-0 max-[768px]:pl-[8%] max-[768px]:pr-4">
+                    <h3
+                        class="flex items-center gap-3 uppercase text-2xl xl:text-[26px] min-[1440px]:text-base font-normal leading-8 min-[1440px]:leading-6 tracking-wide max-[768px]:text-lg max-[768px]:sm:text-3xl max-[768px]:leading-snug">
+                        Contact Us
+                        <svg xmlns="http://www.w3.org/2000/svg" class="hidden max-[768px]:block w-2.5 h-4 shrink-0"
+                            viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <polyline points="2,2 8,8 2,14" />
+                        </svg>
+                    </h3>
+                    <p
+                        class="mt-3 min-[1440px]:mt-2 text-lg xl:text-[21px] min-[1440px]:text-xs font-light leading-8 min-[1440px]:leading-4.5 text-neutral-600 max-[768px]:hidden">
+                        Find out how to get in touch.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+
+    <footer class="font-['Barlow',sans-serif] text-white">
+
+        <!-- ========== MAIN FOOTER ========== -->
+        <div class="bg-[#2c322d] px-6 md:px-12 xl:px-24 pt-16 pb-16 xl:pt-24 xl:pb-35">
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_1.3fr] xl:grid-cols-[478fr_384fr_453fr_392fr] gap-x-10 xl:gap-x-0 gap-y-14">
+
+                <!-- Col 1: logo + socials -->
+                <div class="flex flex-col items-start sm:col-span-2 lg:col-span-1">
+                    <a href="" class="block transition-opacity duration-300 hover:opacity-80">
+                        <img src="assets/i-0.png" alt="Spitfire Homes - HBF 5-star homebuilder"
+                            class="w-56 xl:w-69 -ml-1 xl:ml-0">
+                    </a>
+
+                    <ul class="mt-8 xl:mt-14 flex items-center gap-8 xl:gap-10">
+                        <li>
+                            <a href="" aria-label="Facebook"
+                                class="block text-white transition-all duration-300 hover:text-[#a08a5b] hover:-translate-y-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 512 512"
+                                    fill="currentColor">
+                                    <path
+                                        d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" aria-label="Instagram"
+                                class="block text-white transition-all duration-300 hover:text-[#a08a5b] hover:-translate-y-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
+                                    <circle cx="12" cy="12" r="4.2" />
+                                    <circle cx="17.6" cy="6.4" r="0.6" fill="currentColor" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" aria-label="LinkedIn"
+                                class="block text-white transition-all duration-300 hover:text-[#a08a5b] hover:-translate-y-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <rect x="2" y="9" width="4.2" height="12" />
+                                    <circle cx="4.1" cy="4.3" r="2.3" />
+                                    <path
+                                        d="M9.5 9h4v1.7c.6-1.1 2-2 4-2 3.7 0 4.5 2.4 4.5 5.6V21h-4.2v-5.8c0-1.4 0-3.1-1.9-3.1s-2.2 1.5-2.2 3V21H9.5z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 2: Quick links -->
+                <div>
+                    <h4 class="uppercase text-xl xl:text-2xl font-light tracking-wide text-[#a08a5b] leading-8">
+                        Quick Links
+                    </h4>
+                    <ul class="mt-8 xl:mt-14.5 flex flex-col gap-5 xl:gap-7.5">
+                        <li><a href=""
+                                class="relative inline-block uppercase text-base xl:text-[17px] font-medium tracking-wide leading-6 transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">About
+                                Us</a></li>
+                        <li><a href=""
+                                class="relative inline-block uppercase text-base xl:text-[17px] font-medium tracking-wide leading-6 transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Buying
+                                Schemes</a></li>
+                        <li><a href=""
+                                class="relative inline-block uppercase text-base xl:text-[17px] font-medium tracking-wide leading-6 transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Land
+                                Required</a></li>
+                        <li><a href=""
+                                class="relative inline-block uppercase text-base xl:text-[17px] font-medium tracking-wide leading-6 transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">News
+                                &amp; Updates</a></li>
+                        <li><a href=""
+                                class="relative inline-block uppercase text-base xl:text-[17px] font-medium tracking-wide leading-6 transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Sustainability</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Help -->
+                <div>
+                    <h4 class="uppercase text-xl xl:text-2xl font-light tracking-wide text-[#a08a5b] leading-8">
+                        Help
+                    </h4>
+                    <ul class="mt-8 xl:mt-14.5 flex flex-col gap-5 xl:gap-7.5">
+                        <li><a href=""
+                                class="relative inline-block uppercase text-base xl:text-[17px] font-medium tracking-wide leading-6 transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Contact
+                                Us</a></li>
+                        <li><a href=""
+                                class="relative inline-block uppercase text-base xl:text-[17px] font-medium tracking-wide leading-6 transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Spitfire
+                                Concierge</a></li>
+                        <li><a href=""
+                                class="relative inline-block uppercase text-base xl:text-[17px] font-medium tracking-wide leading-6 transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Customer
+                                Care</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="sm:col-span-2 lg:col-span-1 text-base xl:text-lg font-light leading-8">
+                    <dl
+                        class="grid grid-cols-[auto_1fr] gap-x-6 min-[1600px]:grid-cols-[178px_1fr] min-[1600px]:gap-x-0">
+                        <dt class="whitespace-nowrap">Telephone:</dt>
+                        <dd class="whitespace-nowrap"><a href="tel:03447360074"
+                                class="transition-colors duration-300 hover:text-[#a08a5b]">0344 736 0074</a></dd>
+                        <dt class="whitespace-nowrap">Customer Care:</dt>
+                        <dd class="whitespace-nowrap"><a href="tel:03453073617"
+                                class="transition-colors duration-300 hover:text-[#a08a5b]">0345 307 3617</a></dd>
+                    </dl>
+
+                    <address class="not-italic mt-8 xl:mt-10">
+                        Spitfire Homes<br>
+                        The Gate<br>
+                        International Drive<br>
+                        Solihull<br>
+                        B90 4WA
+                    </address>
+
+                    <!-- Accreditation badges (replace with your assets) -->
+                    <ul class="mt-10 xl:mt-24 flex flex-wrap items-center gap-x-8 xl:gap-x-10 gap-y-5">
+                        <li><a href=""
+                                class="block opacity-70 transition-all duration-300 hover:opacity-100 hover:-translate-y-1"><img
+                                    src="assets/i-1.png" alt="Consumer Code" class="h-3 w-auto"></a></li>
+                        <li><a href=""
+                                class="block opacity-70 transition-all duration-300 hover:opacity-100 hover:-translate-y-1"><img
+                                    src="assets/i-2.png" alt="HBF" class="h-3 w-auto"></a></li>
+                        <li><a href=""
+                                class="block opacity-70 transition-all duration-300 hover:opacity-100 hover:-translate-y-1"><img
+                                    src="assets/i-3.png" alt="NHBC" class="h-3 w-auto"></a></li>
+                        <li><a href=""
+                                class="block opacity-70 transition-all duration-300 hover:opacity-100 hover:-translate-y-1"><img
+                                    src="assets/i-4.png" alt="Home Quality Mark" class="h-3 w-auto"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== LEGAL BAR ========== -->
+        <div class="bg-[#232623] px-6 md:px-12 xl:px-24 pt-10 pb-12 xl:pt-11.5 xl:pb-14">
+            <div class="flex items-start justify-between gap-6">
+                <div class="min-w-0">
+                    <ul
+                        class="flex flex-wrap gap-x-8 xl:gap-x-13.5 gap-y-3 uppercase text-sm font-medium tracking-wide leading-6">
+                        <li><a href=""
+                                class="relative inline-block transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Modern
+                                Slavery Policy</a></li>
+                        <li><a href=""
+                                class="relative inline-block transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Policy
+                                Statements</a></li>
+                        <li><a href=""
+                                class="relative inline-block transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Privacy
+                                Notice</a></li>
+                        <li><a href=""
+                                class="relative inline-block transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Cookie
+                                Notice</a></li>
+                        <li><a href=""
+                                class="relative inline-block transition-colors duration-300 hover:text-[#a08a5b] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[#a08a5b] after:transition-all after:duration-300 hover:after:w-full">Cookie
+                                Preferences</a></li>
+                    </ul>
+
+                    <p class="mt-6 xl:mt-7.5 text-sm xl:text-base font-light leading-6 text-neutral-300">
+                        Some images and media on this website have been created or enhanced using computer-generated
+                        imagery and AI-based editing tools. Please use all imagery for indicative purposes only.
+                    </p>
+                    <p class="mt-4 xl:mt-5 text-sm xl:text-base font-light leading-6 text-neutral-300">
+                        Spitfire Homes is the trading name of Spitfire Bespoke Homes Limited, The Gate, International
+                        Drive, Solihull B90 4WA &middot; Company Registration Number: 04395875 &middot; VAT No: 409 4252
+                        06
+                    </p>
+                </div>
+
+                <!-- Accessibility / cookie widget button -->
+                <button type="button" aria-label="Accessibility options"
+                    class="hidden sm:flex shrink-0 mt-16 xl:mt-22 size-7.5 items-center justify-center rounded-full border-2 border-white text-white text-xs font-semibold transition-all duration-300 hover:border-[#a08a5b] hover:text-[#a08a5b] hover:scale-110 cursor-pointer">
+                    a
+                </button>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

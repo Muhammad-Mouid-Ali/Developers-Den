@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@keyframes heroCrossfade {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@layer components {
+  .animate-hero-slide {
+    opacity: 0;
+    animation: heroCrossfade 20s infinite linear backwards;
+  }
+}
+
+
