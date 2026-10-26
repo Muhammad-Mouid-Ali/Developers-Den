@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Java Script Assignment</title>
+</head>
+
+<body class="bg-[#383838]">
+
+    <Header class="flex justify-center items-center bg-[#222222]">
+        <img src="javascript-seeklogo.png" class="w-20 py-5" alt="">
+        <h1 class="text-white px-5 text-5xl font-bold">Java Script Assignment</h1>
+    </Header>
+
+    <main class="min-h-screen bg-neutral-700 flex justify-center px-4 py-10">
+        <form id="signupForm" novalidate class="w-full max-w-md bg-neutral-800 p-6 rounded-lg shadow-lg space-y-4">
+
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-200 mb-1">Name</label>
+                <input id="name" type="text" class="w-full bg-neutral-900 text-white border border-neutral-600 rounded px-3 py-2
+                    focus:outline-none focus:border-yellow-400" />
+                <p id="nameError" class="text-red-400 text-sm mt-1"></p>
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-200 mb-1">Email</label>
+                <input id="email" type="text" class="w-full bg-neutral-900 text-white border border-neutral-600 rounded px-3 py-2
+                    focus:outline-none focus:border-yellow-400" />
+                <p id="emailError" class="text-red-400 text-sm mt-1"></p>
+            </div>
+
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-200 mb-1">Password</label>
+                <input id="password" type="password" class="w-full bg-neutral-900 text-white border border-neutral-600 rounded px-3 py-2
+                    focus:outline-none focus:border-yellow-400" />
+                <p id="passwordError" class="text-red-400 text-sm mt-1"></p>
+            </div>
+
+            <div>
+                <label for="confirmPassword" class="block text-sm font-medium text-gray-200 mb-1">Confirm
+                    Password</label>
+                <input id="confirmPassword" type="password" class="w-full bg-neutral-900 text-white border border-neutral-600 rounded px-3 py-2
+                    focus:outline-none focus:border-yellow-400" />
+                <p id="confirmPasswordError" class="text-red-400 text-sm mt-1"></p>
+            </div>
+
+
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-200 mb-1">Phone Number</label>
+                <input id="phone" type="text" class="w-full bg-neutral-900 text-white border border-neutral-600 rounded px-3 py-2
+                    focus:outline-none focus:border-yellow-400" />
+                <p id="phoneError" class="text-red-400 text-sm mt-1"></p>
+            </div>
+
+            <button type="submit"
+                class="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-2 rounded">
+                Submit
+            </button>
+            <p id="successMessage" class="text-green-400 font-medium"></p>
+        </form>
+    </main>
+
+    <script>
+        const form = document.getElementById("signupForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const phone = document.getElementById("phone").value.trim();
+
+            const nameErr = validateName(name);
+            const emailErr = validateEmail(email);
+            const passwordErr = validatePassword(password);
+            const confirmPasswordErr = validateConfirmPassword(confirmPassword, password);
+            const phoneErr = validatePhone(phone);
+
+            showError("nameError", nameErr);
+            showError("emailError", emailErr);
+            showError("passwordError", passwordErr);
+            showError("confirmPasswordError", confirmPasswordErr);
+            showError("phoneError", phoneErr);
+
+            const success = document.getElementById("successMessage");
+            if (!nameErr && !emailErr && !passwordErr && !confirmPasswordErr && !phoneErr) {
+                success.textContent = "Form submitted successfully!";
+            } else {
+                success.textContent = "";
+            }
+
+            console.log("Form submitted");
+        });
+
+        function validateName(value) {
+            if (!/^[A-Z]/.test(value)) return "Name must start with a capital letter.";
+            return "";
+        }
+
+        function validateEmail(value) {
+            if (value === "") return "Email is required.";
+            if (/\s/.test(value)) return "Email cannot contain spaces.";
+            if (value.length > 254) return "Email length cannot exceed 254 characters."
+
+            const parts = value.split("@");
+            if (parts.length !== 2) return "Email must contain only one @ symbol."
+            const [local, domain] = parts;
+
+            if (local.length === 0) return "Enter a username before the @.";
+            if (local.length > 64) return "Username part cannot exceed 64 characters.";
+            if (!/^[A-Za-z0-9.+_-]+$/.test(local)) return "Username can only contain letters, numbers, and . _ - +";
+            if (local.startsWith(".") || local.endsWith(".")) return "Username cannot start or end with a period.";
+            if (local.includes("..")) return "Username cannot contain consecutive periods";
+
+            if (domain.length === 0) return "Enter a domain after the @";
+            const labels = domain.split(".");
+            if (labels.length < 2) return "Domain must include a dot, like example.com.";
+
+            for (const label of labels) {
+                if (label.length === 0) return "Domain cannot have empty sections (e.g. two dots in a row).";
+                if (label.length > 63) return "Each domain section cannot exceed 63 characters.";
+                if (!/^[A-Za-z0-9-]+$/.test(label))
+                    return "Domain can only contain letters, numbers, and hyphens.";
+                if (label.startsWith("-") || label.endsWith("-"))
+                    return "Domain sections cannot start or end with a hyphen.";
+            }
+
+            const end = labels[labels.length - 1];
+            if (end.length < 2 || !/^[A-Za-z]+$/.test(end))
+                return "Domain must end with a valid extension of at least 2 letters (e.g. .com).";
+
+            return "";
+        }
+
+        function validatePassword(value) {
+            if (value.length < 6) return "Password must be at least 6 characters.";
+            if (!/[A-Za-z]/.test(value) || !/\d/.test(value)) return "Password must contain both letters and numbers.";
+            return "";
+        }
+
+        function validateConfirmPassword(value, password) {
+            if (value !== password) return "Passwords do not match.";
+            return "";
+        }
+
+        function validatePhone(value) {
+            if (!/^\d{11}$/.test(value)) return "Phone numbers must be exactly 11 digits."
+            return "";
+        }
+
+        function showError(id, message) {
+            document.getElementById(id).textContent = message;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
